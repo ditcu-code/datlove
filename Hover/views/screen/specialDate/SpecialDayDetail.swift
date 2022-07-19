@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct SpecialDayDetail: View {
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) var moc
+    
     var selectedSpecialDay: SpecialDay
+    
+    @State private var isShowEdit: Bool = false
+    @State private var isShowAlert: Bool = false
     
     var body: some View {
         ZStack {
@@ -48,12 +54,16 @@ struct SpecialDayDetail: View {
                                     if selectedSpecialDay.activityInSDArray.isEmpty {
                                         Text("Have you planned activities?")
                                     } else {
-                                        ForEach(selectedSpecialDay.activityInSDArray, id: \.self) {
-                                            act in
-                                            HStack {
-                                                LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray), size: 40, cornerRadius: 8)
-                                                Text(act.wrappedActivity)
-                                                    .lineLimit(nil)
+                                        ScrollView {
+                                            VStack(alignment: .leading) {
+                                                ForEach(selectedSpecialDay.activityInSDArray, id: \.self) {
+                                                    act in
+                                                    HStack {
+                                                        LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray), size: 40, cornerRadius: 8)
+                                                        Text(act.wrappedActivity)
+                                                            .lineLimit(nil)
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -85,7 +95,7 @@ struct SpecialDayDetail: View {
                 .padding()
                 Spacer()
                 Button {
-                    
+                    isShowEdit.toggle()
                 } label: {
                     Text("Update this event")
                         .bold()
@@ -99,18 +109,38 @@ struct SpecialDayDetail: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}) {
+                    Button(action: {
+                        isShowAlert.toggle()
+                    }) {
                         Text("Delete")
                             .fontWeight(.semibold)
                     }
                 }
             }
+            .sheet(isPresented: $isShowEdit) {
+                SpecialDayEditForm(selectedSpecialDay: selectedSpecialDay)
+            }
+            .alert("Are You Sure Want To Delete?", isPresented: $isShowAlert) {
+                Button(role: .cancel) {
+                    
+                } label: {
+                    Text("Cancel")
+                }
+                Button(role: .destructive) {
+                    moc.delete(selectedSpecialDay)
+                    try? moc.save()
+                    dismiss()
+                } label: {
+                    Text("Delete")
+                }
+            }
         }
     }
 }
-
-struct SpecialDayDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        SpecialDayDetail(selectedSpecialDay: GlobalObject.shared.specialDayWithAct)
-    }
-}
+//
+//struct SpecialDayDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SpecialDayDetail(selectedSpecialDay: GlobalObject.shared.specialDayWithAct)
+//            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+//    }
+//}

@@ -193,11 +193,11 @@ struct UserLoveLanguageList: View {
         }
     }
 }
-
-struct ProfilePage_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfilePage()
-            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
-            .environmentObject(GlobalObject.shared)
-    }
-}
+//
+//struct ProfilePage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfilePage()
+//            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+//            .environmentObject(GlobalObject.shared)
+//    }
+//}

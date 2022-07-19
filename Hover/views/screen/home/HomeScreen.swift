@@ -46,6 +46,9 @@ struct HomeScreen: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
         }
+        .onAppear {
+            loadCurrentUser()
+        }
         .onChange(of: scenePhase) { _ in
             loadCurrentUser()
         }
@@ -73,11 +76,11 @@ struct HomeScreen: View {
         }
     }
 }
-
-struct HomeScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeScreen()
-            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
-            .environmentObject(GlobalObject.shared)
-    }
-}
+//
+//struct HomeScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeScreen()
+//            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+//            .environmentObject(GlobalObject.shared)
+//    }
+//}

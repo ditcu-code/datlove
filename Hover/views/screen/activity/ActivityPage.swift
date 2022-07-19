@@ -196,14 +196,14 @@ struct ActivityListItem: View {
         }
     }
 }
-
-struct ActivityPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityPage()
-            .environmentObject(GlobalObject.shared)
-            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
-    }
-}
+//
+//struct ActivityPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ActivityPage()
+//            .environmentObject(GlobalObject.shared)
+//            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+//    }
+//}
 
 extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {

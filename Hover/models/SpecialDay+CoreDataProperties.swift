@@ -28,7 +28,7 @@ extension SpecialDay {
         alert ?? "Unknown Alert"
     }
     public var wrappedDate: Date{
-        date!
+        date ?? Date()
     }
     public var wrappedName: String{
         name ?? "Unknown Alert"

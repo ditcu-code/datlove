@@ -32,8 +32,8 @@ struct ContentView: View {
             } else {
                 OnboardingPage()
                     .onAppear() {
-                        CoreDataPreviewHelper.rollbackForApp()
-//                        if loveLanguages.isEmpty {
+//                        CoreDataPreviewHelper.rollbackForApp()
+                        if loveLanguages.isEmpty {
                             let llName = [LoveLanguageEnum.physicalTouch.rawValue, LoveLanguageEnum.wordsOfAffirmation.rawValue, LoveLanguageEnum.qualityTime.rawValue, LoveLanguageEnum.receivingGift.rawValue, LoveLanguageEnum.actOfService.rawValue]
                             let detail = ["To this person, nothing speaks more deeply than appropriate physical touch.","This language uses words to affirm other people.", "This language is all about giving the other person your undivided attention.", "For some people, receiving a heartfelt gift is what makes them feel most loved.", "For these people, actions speak louder than words."]
                             
@@ -44,7 +44,7 @@ struct ContentView: View {
                             for a in llActivityRec.activityListLL {
                                 saveActivityWithLL(activity: a)
                             }
-//                        }
+                        }
                     }
                     .environmentObject(globalObject)
             }

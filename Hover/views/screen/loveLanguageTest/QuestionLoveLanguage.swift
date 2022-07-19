@@ -46,14 +46,15 @@ struct QuestionLoveLanguage: View {
                     updateUI()
                 }
             } label: {
-                Text(option1Label)
-                    .lineLimit(nil)
-                    .padding()
-                    .frame(width: screenSize * 0.9, height: 100)
-                    .foregroundColor(.black)
-                    .background(.white)
-                    .cornerRadius(15)
-                    .shadow(color: option1Checked ? Color.activeButtonColor : .black, radius: 1)
+//                Text(option1Label)
+//                    .lineLimit(nil)
+//                    .padding()
+//                    .frame(width: screenSize * 0.9, height: 100)
+//                    .foregroundColor(.black)
+//                    .background(.white)
+//                    .cornerRadius(15)
+//                    .shadow(color: option1Checked ? Color.activeButtonColor : .black, radius: 1)
+                LoveLanguageOptionView(text: option1Label, checked: option1Checked)
             }
             Button {
                 option2Checked.toggle()
@@ -63,14 +64,15 @@ struct QuestionLoveLanguage: View {
                     updateUI()
                 }
             } label: {
-                Text(option2Label)
-                    .lineLimit(nil)
-                    .padding()
-                    .frame(width: screenSize * 0.9, height: 100)
-                    .foregroundColor(.black)
-                    .background(.white)
-                    .cornerRadius(15)
-                    .shadow(color: option2Checked ? Color.activeButtonColor: .black, radius: 1)
+//                Text(option2Label)
+//                    .lineLimit(nil)
+//                    .padding()
+//                    .frame(width: screenSize * 0.9, height: 100)
+//                    .foregroundColor(.black)
+//                    .background(.white)
+//                    .cornerRadius(15)
+//                    .shadow(color: option2Checked ? Color.activeButtonColor: .black, radius: 1)
+                LoveLanguageOptionView(text: option2Label, checked: option2Checked)
             }
             Spacer()
         }
@@ -128,6 +130,22 @@ struct QuestionLoveLanguage: View {
         }
         
         return (value * 100 / total)
+    }
+}
+
+struct LoveLanguageOptionView: View {
+    var text: String
+    var checked: Bool = false
+    var body: some View {
+        Text(text)
+            .lineLimit(nil)
+            .minimumScaleFactor(0.5)
+            .padding()
+            .frame(width: screenSize * 0.9, height: 100)
+            .foregroundColor(.black)
+            .background(.white)
+            .cornerRadius(15)
+            .shadow(color: checked ? Color.activeButtonColor: .black, radius: 1)
     }
 }
 

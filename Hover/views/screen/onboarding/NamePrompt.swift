@@ -14,6 +14,7 @@ struct NamePrompt: View {
 //    @Binding var onboardingStep: Int
     @State var username: String = ""
     @State var isNavigateActive: Bool = false
+    @State var isKeyboardActive: Bool = false
     var user: User = User()
     var partner: User = User()
     
@@ -44,7 +45,17 @@ struct NamePrompt: View {
                         Spacer()
                     }
                 }.padding(.bottom, 50)
-                TextField(self.onboardingStep == 0 ? "Your Name" : "Partner Name", text: $username)
+                TextField(self.onboardingStep == 0 ? "Your Name" : "Partner Name", text: $username) { startedEditing in
+                    if startedEditing {
+                        withAnimation {
+                            isKeyboardActive = true
+                        }
+                    }
+                } onCommit: {
+                    withAnimation {
+                        isKeyboardActive = false
+                    }
+                }
                     .modifier(ClearButton(text: $username))
                     .padding()
                     .frame(height: 44)
@@ -60,14 +71,16 @@ struct NamePrompt: View {
                     }
                 } label: {
                 }.hidden()
-                Button {
-                    saveName()
-                    self.isNavigateActive.toggle()
-                } label: {
-                    OnboardingNextButton(isDisabled: disabledForm)
-                        .padding(.bottom, 115)
+                if !isKeyboardActive {
+                    Button {
+                        saveName()
+                        self.isNavigateActive.toggle()
+                    } label: {
+                        OnboardingNextButton(isDisabled: disabledForm)
+                            .padding(.bottom, 115)
+                    }
+                    .disabled(disabledForm)
                 }
-                .disabled(disabledForm)
             }
             .padding()
             .navigationBarHidden(true)

@@ -10,10 +10,11 @@ import SwiftUI
 struct SpecialDatePrompt: View {
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var globalObject: GlobalObject
-//    @Binding var onboardingStep: Int
+    //    @Binding var onboardingStep: Int
     @State var specialDateName: String = ""
     @State var date: Date = Date()
     @State var isNavigateActive: Bool = false
+    @State var isKeyboardActive: Bool = false
     
     var disabledForm: Bool {
         specialDateName.isEmpty
@@ -39,12 +40,23 @@ struct SpecialDatePrompt: View {
                 }
             }.padding(.bottom, 50)
             TextField("Special Date", text: $specialDateName)
-                .modifier(ClearButton(text: $specialDateName))
-                .padding()
-                .frame(height: 44)
-                .background(.white)
-                .cornerRadius(5)
-                .shadow(color: .black, radius: 1)
+            { startedEditing in
+                if startedEditing {
+                    withAnimation {
+                        isKeyboardActive = true
+                    }
+                }
+            } onCommit: {
+                withAnimation {
+                    isKeyboardActive = false
+                }
+            }
+            .modifier(ClearButton(text: $specialDateName))
+            .padding()
+            .frame(height: 44)
+            .background(.white)
+            .cornerRadius(5)
+            .shadow(color: .black, radius: 1)
             Text("Insert special date, such as wedding anniversary, partner’s birthday, valentine’s day, etc")
                 .font(.subheadline)
                 .foregroundColor(Color("CaptionColor"))
@@ -61,14 +73,16 @@ struct SpecialDatePrompt: View {
             .cornerRadius(5)
             .shadow(color: .black, radius: 1)
             Spacer()
-            Button {
-                saveSpecialDate()
-//                globalObject.onboardingStep += 1
-                self.isNavigateActive.toggle()
-            } label: {
-                OnboardingNextButton(isDisabled: disabledForm)
-                    .padding(.bottom, 115)
+            if !isKeyboardActive {
+                Button {
+                    saveSpecialDate()
+                    //                globalObject.onboardingStep += 1
+                    self.isNavigateActive.toggle()
+                } label: {
+                    OnboardingNextButton(isDisabled: disabledForm)
+                        .padding(.bottom, 115)
             }.disabled(disabledForm)
+            }
             NavigationLink(isActive: self.$isNavigateActive) {
                 IntroLoveLanguagePrompt(onboardingStep: 3)
             } label: {

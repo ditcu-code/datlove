@@ -151,11 +151,11 @@ private struct LoveLanguageOption: View {
         }
     }
 }
-
-struct LoveLanguagePrompt_Previews: PreviewProvider {
-    static var previews: some View {
-        LoveLanguagePrompt()
-            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
-            .environmentObject(GlobalObject.shared)
-    }
-}
+//
+//struct LoveLanguagePrompt_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoveLanguagePrompt()
+//            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+//            .environmentObject(GlobalObject.shared)
+//    }
+//}

@@ -31,6 +31,7 @@
 		93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */; };
 		93DBDADE286CC86800F6AA47 /* ShowSpecialDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBDADD286CC86800F6AA47 /* ShowSpecialDay.swift */; };
 		93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */; };
+		FD11BBA62877FA8400885EFE /* SpecialDayEditForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11BBA52877FA8400885EFE /* SpecialDayEditForm.swift */; };
 		FD6D9520286CA30700A25687 /* CustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D951F286CA30700A25687 /* CustomModifier.swift */; };
 		FD6D9522286CA88A00A25687 /* IntroLoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */; };
 		FD6D9526286CB4E000A25687 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D9525286CB4E000A25687 /* Checklist.swift */; };
@@ -94,6 +95,7 @@
 		93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataActivityTest.swift; sourceTree = "<group>"; };
 		93DBDADD286CC86800F6AA47 /* ShowSpecialDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSpecialDay.swift; sourceTree = "<group>"; };
 		93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpecialDateTest.swift; sourceTree = "<group>"; };
+		FD11BBA52877FA8400885EFE /* SpecialDayEditForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDayEditForm.swift; sourceTree = "<group>"; };
 		FD6D951F286CA30700A25687 /* CustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifier.swift; sourceTree = "<group>"; };
 		FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroLoveLanguagePrompt.swift; sourceTree = "<group>"; };
 		FD6D9525286CB4E000A25687 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				FDD705DE2865DC100003D311 /* SpecialDateForm.swift */,
 				0ED794DB28730C9500BE09DF /* AddActivityForm.swift */,
 				FDAF4E5928735F030023E153 /* SpecialDayDetail.swift */,
+				FD11BBA52877FA8400885EFE /* SpecialDayEditForm.swift */,
 			);
 			path = specialDate;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				FD6D952B286CCCC200A25687 /* LoveLanguageUser.swift in Sources */,
 				FDFDDDE6286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift in Sources */,
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
+				FD11BBA62877FA8400885EFE /* SpecialDayEditForm.swift in Sources */,
 				FDAF4E56287337510023E153 /* LoveLanguageLogoBg.swift in Sources */,
 				FD7B63802871CBFD00F019F4 /* datLoveModel.xcdatamodeld in Sources */,
 				0ED794DC28730C9500BE09DF /* AddActivityForm.swift in Sources */,
@@ -620,7 +624,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Hover/Preview Content\"";
 				DEVELOPMENT_TEAM = FANN368M5W;
 				ENABLE_PREVIEWS = YES;
@@ -656,7 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Hover/Preview Content\"";
 				DEVELOPMENT_TEAM = FANN368M5W;
 				GENERATE_INFOPLIST_FILE = YES;

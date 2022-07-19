@@ -112,10 +112,10 @@ struct TestResultPage: View {
         return chosen?.wrappedDetail ?? "No Detail"
     }
 }
-
-struct TestResultPage_Previews: PreviewProvider {
-    static var previews: some View {
-        TestResultPage(user: CoreDataPreviewHelper.dummyUser)
-            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
-    }
-}
+//
+//struct TestResultPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TestResultPage(user: GlobalObject.shared.user)
+//            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+//    }
+//}

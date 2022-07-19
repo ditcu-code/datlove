@@ -211,11 +211,11 @@ struct EmptyActivitySpecialDayCard: View {
         }
     }
 }
-
-struct SpecialDatePage_Previews: PreviewProvider {
-    static var previews: some View {
-        SpecialDatePage()
-            .environmentObject(GlobalObject.shared)
-            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
-    }
-}
+//
+//struct SpecialDatePage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SpecialDatePage()
+//            .environmentObject(GlobalObject.shared)
+//            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+//    }
+//}

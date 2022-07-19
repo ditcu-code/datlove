@@ -10,11 +10,11 @@ import Foundation
 class GlobalObject: ObservableObject {
     static let shared: GlobalObject = GlobalObject()
     
-    @Published var user: User = CoreDataPreviewHelper.initialUser
-    @Published var partner: User = CoreDataPreviewHelper.initialUser
+    @Published var user: User = User()
+    @Published var partner: User = User()
     
-    @Published var specialDayNoAct : SpecialDay = CoreDataPreviewHelper.dummySpecialDayEmptyActivity
-    @Published var specialDayWithAct : SpecialDay = CoreDataPreviewHelper.dummySpecialDayWithActivity
+    @Published var specialDayNoAct : SpecialDay = SpecialDay()
+    @Published var specialDayWithAct : SpecialDay = SpecialDay()
     
 //    @Published var onboardingStep: Int = 0
     @Published var showCongrats: Bool = false
